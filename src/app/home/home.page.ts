@@ -10,9 +10,6 @@ import { Konstanten } from '../konstanten';
  * Für Liste deutscher KFZ-Kennzeichen siehe:
  * * https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kfz-zulassung/kfz-kennzeichen-deutschland/
  * * https://de.wikipedia.org/wiki/Liste_der_Kfz-Kennzeichen_in_Deutschland
- *
- * Es wird die Pipe "filter" aus dem Paket "ng2-search-filter" verwendet,
- * siehe auch https://www.npmjs.com/package/ng2-search-filter .
  */
 @Component({
   selector: 'app-home',
@@ -104,7 +101,7 @@ export class HomePage {
   }
 
   /**
-   * Event-Handler-Methode, um Info-Modal zu schließen.
+   * Event-Handler-Methode um Info-Modal zu schließen.
    */
   public onInfoModalSchliessen() {
 
