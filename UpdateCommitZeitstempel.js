@@ -1,7 +1,5 @@
-
 /**
- * Skript aktualisiert den Build-Zeitstempel/Version,
- * der in Info-Modal angezeigt wird.
+ * Skript aktualisiert den Build-Zeitstempel/Version, der in Info-Modal angezeigt wird.
  */
 
 const moment = require('moment');
@@ -11,7 +9,7 @@ const fs     = require('fs');
 const zieldatei = "src/app/konstanten.ts";
 
 
-const zeitstempel = moment().format("Do MMM YYYY (dd), HH:mm");
+const zeitstempel = moment().format(); // Beispielausgabe: 2023-05-28T13:25:13+02:00
 
 const inhalt =  "// Diese Klasse wird vom Skript UpdateCommitZeitstempel.js erzeugt\n" +
                 "export abstract class Konstanten {\n\n"                               +
