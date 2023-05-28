@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 
 import { KfzKennzeichen } from '../kfz-kennzeichen';
+import { Konstanten } from '../konstanten';
 
 /**
  * App, um die KFZ-Kennzeichen in Deutschland nachzuschlagen.
@@ -29,6 +30,8 @@ export class HomePage {
 
   readonly MIL = "Militär";
   readonly BEH = "Behörde/Organisation";
+
+  readonly ZEITSTEMPEL_COMMIT = Konstanten.ZEITSTEMPEL_COMMIT;
 
   /** Array mit allen bekannten KFZ-Kennzeichen, wird von Konstruktor gefüllt. */
   public alleKfzKennzeichenArray: Array<KfzKennzeichen> = [];
