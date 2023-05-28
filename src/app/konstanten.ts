@@ -1,4 +1,5 @@
+// Diese Klasse wird vom Skript UpdateCommitZeitstempel.js erzeugt
 export abstract class Konstanten {
 
-    static readonly ZEITSTEMPEL_COMMIT = "2023-05-28T10:20:42.701Z";
+  static readonly ZEITSTEMPEL_COMMIT = "28th May 2023 (Su), 13:15";
 }

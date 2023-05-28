@@ -1,0 +1,31 @@
+
+/**
+ * Skript aktualisiert den Build-Zeitstempel/Version,
+ * der in Info-Modal angezeigt wird.
+ */
+
+const moment = require('moment');
+const fs     = require('fs');
+
+// Quellcode-Datei, in der Konstante mit anzuzeigendem Wert definiert ist
+const zieldatei = "src/app/konstanten.ts";
+
+
+const zeitstempel = moment().format("Do MMM YYYY (dd), HH:mm");
+
+const inhalt =  "// Diese Klasse wird vom Skript UpdateCommitZeitstempel.js erzeugt\n" +
+                "export abstract class Konstanten {\n\n"                               +
+                `  static readonly ZEITSTEMPEL_COMMIT = \"${zeitstempel}\";\n`         +
+                "}";
+
+fs.writeFile( zieldatei,
+              inhalt,
+              { flag: 'w+' },
+              fehlerObj => {
+                if (fehlerObj) {
+                  console.log(`\nFehler aufgetreten: ${error}\n`);
+                } else {
+                  console.log("\nDatei wurde erstellt:\n" + inhalt + "\n")
+                }
+              }
+            );
