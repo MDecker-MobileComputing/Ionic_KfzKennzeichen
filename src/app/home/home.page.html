@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>KFZ-Kennzeichen nachschlagen</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button fill="solid" icon-only id="open-modal" >
+        <ion-icon name="information-outline"></ion-icon><!-- Icon-Suche: https://ionic.io/ionicons -->
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -22,5 +27,29 @@
     </ion-item>
   </ion-list>
 
+  <!-- Inline-Definition von "Modal"-View für Info-Button.
+       Siehe auch: https://ionicframework.com/docs/api/modal -->
+  <ion-modal trigger="open-modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Über diese App</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="onInfoModalSchliessen()" [strong]="true">Schließen</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p>
+          Mit der App können die Stadt/Kreis-Kennungen (Unterscheidungszeichen),
+          mit denen deutsche KFZ-Kennzeichen beginnen, nachgeschlagen werden,
+          z.B. "KA" für den Landkreis Karlsruhe.
+          Ein solches Unterscheidungszeichen besteht aus einem, zwei oder drei Buchstaben.
+          Es gibt auch spezielle Unterscheidungszeichen für Organisationen und Behörden,
+          z.B. "THW" für das "Technische Hilfswerk" oder "Y" für die Bundeswehr.
+        </p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 
 </ion-content>

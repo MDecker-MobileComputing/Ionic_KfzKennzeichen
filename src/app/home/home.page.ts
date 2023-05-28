@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 
 import { KfzKennzeichen } from '../kfz-kennzeichen';
 
@@ -6,7 +7,8 @@ import { KfzKennzeichen } from '../kfz-kennzeichen';
  * App, um die KFZ-Kennzeichen in Deutschland nachzuschlagen.
  *
  * Für Liste deutscher KFZ-Kennzeichen siehe:
- * https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kfz-zulassung/kfz-kennzeichen-deutschland/
+ * * https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kfz-zulassung/kfz-kennzeichen-deutschland/
+ * * https://de.wikipedia.org/wiki/Liste_der_Kfz-Kennzeichen_in_Deutschland
  *
  * Es wird die Pipe "filter" aus dem Paket "ng2-search-filter" verwendet,
  * siehe auch https://www.npmjs.com/package/ng2-search-filter .
@@ -18,29 +20,43 @@ import { KfzKennzeichen } from '../kfz-kennzeichen';
 })
 export class HomePage {
 
-  //public eingabeSuchbegriff = "";
-
   // Abkürzungen der Bundesländer in Deutschland
-  // Quelle: ehttps://www.giga.de/ratgeber/specials/abkuerzungen-der-bundeslaender-in-deutschland-tabelle/
+  // Quelle: https://www.giga.de/ratgeber/specials/abkuerzungen-der-bundeslaender-in-deutschland-tabelle/
   readonly BE = "Berlin";
   readonly BA = "Bayern";
   readonly BW = "Baden-Württemberg";
+  readonly NW = "Nordrhein-Westfalen";
 
   readonly MIL = "Militär";
+  readonly BEH = "Behörde/Organisation";
 
-  /**
-   * Array mit allen bekannten KFZ-Kennzeichen, wird von Konstruktor gefüllt.
-   */
+  /** Array mit allen bekannten KFZ-Kennzeichen, wird von Konstruktor gefüllt. */
   public alleKfzKennzeichenArray: Array<KfzKennzeichen> = [];
 
+  /** Array mit allen auf den aktuellen Suchbegriff passenden KFZ-Kennzeichen, werden in Liste angezeigt. */
   public suchergebnisArray : Array<KfzKennzeichen> = [];
 
+  /**
+   * Member-Variable fuer Modal-Element für Info-Button.
+   * Zum Begriff "Modal" im UI-Design siehe auch: https://kulturbanause.de/faq/modal-screen/
+   */
+  @ViewChild(IonModal) infoModal: IonModal | null = null;
+
+  /**
+   * Konstruktor, füllt Member-Variable mit allen bekannten KFZ-Kennzeichen.
+   */
   constructor() {
+
+    // KFZ-Kennzeichen in alphabetischer Reihenfolge definieren
 
     this.addKfzKennzeichen("B"  , "Berlin"     , this.BE);
     this.addKfzKennzeichen("BA" , "Bamberg"    , this.BA);
     this.addKfzKennzeichen("BAD", "Baden-Baden", this.BW);
+
+    this.addKfzKennzeichen("K"  , "Köln"       , this.NW);
     this.addKfzKennzeichen("KA" , "Karlsruhe"  , this.BW);
+
+    this.addKfzKennzeichen("THW", "Technisches Hilfswerk", this.BEH);
 
     this.addKfzKennzeichen("X", "Nato"      , this.MIL);
     this.addKfzKennzeichen("Y", "Bundeswehr", this.MIL);
@@ -48,6 +64,7 @@ export class HomePage {
 
   /**
    * Einzelnes KFZ-Kennzeichen in internen Array ("Datenbank") hinzufügen.
+   *
    * @param kennzeichen KFZ-Kennzeichen, z.B. "KA"
    * @param stadtKreis Stadt oder Kreis, für den das Kennzeichen steht
    * @param bundesland Bundesland, in dem Stadt/Kreis liegt
@@ -80,6 +97,17 @@ export class HomePage {
           .filter( (kfzKennzeichenObj) =>
                      kfzKennzeichenObj.kennzeichen.toLowerCase().startsWith(aktuellerSuchbegriff)
                 );
+  }
+
+  /**
+   * Event-Handler-Methode, um Info-Modal zu schließen.
+   */
+  public onInfoModalSchliessen() {
+
+    if (this.infoModal != null) {
+
+      this.infoModal.dismiss();
+    }
   }
 
 }
