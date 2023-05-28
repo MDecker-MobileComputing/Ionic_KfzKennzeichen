@@ -16,14 +16,16 @@ const inhalt =  "// Diese Klasse wird vom Skript UpdateCommitZeitstempel.js erze
                 `  static readonly ZEITSTEMPEL_COMMIT = \"${zeitstempel}\";\n`         +
                 "}";
 
+const callbackFunktion = (fehlerObj) => {
+    if (fehlerObj) {
+        console.log(`\nFehler aufgetreten: ${error}\n`);
+      } else {
+        console.log("\nDatei wurde erstellt:\n" + inhalt + "\n")
+      }
+};
+
 fs.writeFile( zieldatei,
               inhalt,
               { flag: 'w+' },
-              fehlerObj => {
-                if (fehlerObj) {
-                  console.log(`\nFehler aufgetreten: ${error}\n`);
-                } else {
-                  console.log("\nDatei wurde erstellt:\n" + inhalt + "\n")
-                }
-              }
+              callbackFunktion
             );
