@@ -55,9 +55,9 @@ export class HomePage {
     this.addKfzKennzeichen("B"  , "Berlin"     , this.BE);
     this.addKfzKennzeichen("BA" , "Bamberg"    , this.BA);
     this.addKfzKennzeichen("BAD", "Baden-Baden", this.BW);
-
     this.addKfzKennzeichen("K"  , "Köln"       , this.NW);
     this.addKfzKennzeichen("KA" , "Karlsruhe"  , this.BW);
+    this.addKfzKennzeichen("MA" , "Mannheim"   , this.BW);
 
     this.addKfzKennzeichen("THW", "Technisches Hilfswerk", this.BEH);
 
@@ -81,6 +81,7 @@ export class HomePage {
 
   /**
    * Event-Handler-Methode für ion-searchbar.
+   *
    * @param suchbegriff Aktueller Suchbegriff
    */
   public onSearchBarEingabe(event:any) {
