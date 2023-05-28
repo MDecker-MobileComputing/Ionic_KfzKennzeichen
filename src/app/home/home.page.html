@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>KFZ-Kennzeichen nachschlagen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-searchbar [(ngModel)]="eingabeSuchbegriff"
+                 placeholder="KFZ-Kennzeichen"
+                 show-clear-button="always" />
+
+  <ion-list>
+    <ion-item *ngFor="let datensatz of kfzKennzeichenArray | filter:eingabeSuchbegriff"><!-- Pipe "filter" aus "ng2-search-filter" -->
+      <ion-label>{{datensatz.kennzeichen}}</ion-label>
+      <ion-label>{{datensatz.stadtKreis}}</ion-label>
+      <ion-label>{{datensatz.bundesland}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

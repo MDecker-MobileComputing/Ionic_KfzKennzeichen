@@ -1,0 +1,7 @@
+{
+  "name": "KfzKennzeichen",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
