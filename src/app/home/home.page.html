@@ -6,16 +6,21 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <ion-searchbar [(ngModel)]="eingabeSuchbegriff"
-                 placeholder="KFZ-Kennzeichen"
+  <ion-searchbar placeholder="KFZ-Kennzeichen"
+                 (ionInput)="onSearchBarEingabe($event)"
+                 [debounce]="500"
                  show-clear-button="always" />
+  <!-- debounce: "entprellen"; Zeit in ms, um die das Feuern des
+       vents "onInput" verzögert wird. -->
+
 
   <ion-list>
-    <ion-item *ngFor="let datensatz of kfzKennzeichenArray | filter:eingabeSuchbegriff"><!-- Pipe "filter" aus "ng2-search-filter" -->
+    <ion-item *ngFor="let datensatz of suchergebnisArray">
       <ion-label>{{datensatz.kennzeichen}}</ion-label>
       <ion-label>{{datensatz.stadtKreis}}</ion-label>
       <ion-label>{{datensatz.bundesland}}</ion-label>
     </ion-item>
   </ion-list>
+
 
 </ion-content>

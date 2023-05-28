@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { KfzKennzeichen } from '../kfz-kennzeichen';
+
 /**
  * App, um die KFZ-Kennzeichen in Deutschland nachzuschlagen.
  *
@@ -16,24 +18,29 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  public eingabeSuchbegriff = "";
+  //public eingabeSuchbegriff = "";
 
   // Abkürzungen der Bundesländer in Deutschland
   // Quelle: ehttps://www.giga.de/ratgeber/specials/abkuerzungen-der-bundeslaender-in-deutschland-tabelle/
-  readonly BE  = "Berlin";
+  readonly BE = "Berlin";
   readonly BA = "Bayern";
   readonly BW = "Baden-Württemberg";
 
   readonly MIL = "Militär";
 
-  public kfzKennzeichenArray: Array<Object> = [];
+  /**
+   * Array mit allen bekannten KFZ-Kennzeichen, wird von Konstruktor gefüllt.
+   */
+  public alleKfzKennzeichenArray: Array<KfzKennzeichen> = [];
+
+  public suchergebnisArray : Array<KfzKennzeichen> = [];
 
   constructor() {
 
-    this.addKfzKennzeichen("KA" , "Karlsruhe"  , this.BW);
     this.addKfzKennzeichen("B"  , "Berlin"     , this.BE);
     this.addKfzKennzeichen("BA" , "Bamberg"    , this.BA);
     this.addKfzKennzeichen("BAD", "Baden-Baden", this.BW);
+    this.addKfzKennzeichen("KA" , "Karlsruhe"  , this.BW);
 
     this.addKfzKennzeichen("X", "Nato"      , this.MIL);
     this.addKfzKennzeichen("Y", "Bundeswehr", this.MIL);
@@ -47,11 +54,32 @@ export class HomePage {
    */
   private addKfzKennzeichen(kennzeichen: String, stadtKreis: String, bundesland: String) {
 
-    const obj = { "kennzeichen": kennzeichen,
-                  "stadtKreis" : stadtKreis,
-                  "bundesland" : bundesland   };
+    const datensatz = new KfzKennzeichen(kennzeichen, stadtKreis, bundesland);
 
-    this.kfzKennzeichenArray.push( obj );
+    this.alleKfzKennzeichenArray.push( datensatz );
+  }
+
+  /**
+   * Event-Handler-Methode für ion-searchbar.
+   * @param suchbegriff Aktueller Suchbegriff
+   */
+  public onSearchBarEingabe(event:any) {
+
+    const aktuellerSuchbegriff = event.target.value.trim().toLowerCase();
+
+    if (aktuellerSuchbegriff.length === 0) {
+
+      this.suchergebnisArray = [];
+      return;
+    }
+
+    console.log(`Aktueller Suchbegriff: "${aktuellerSuchbegriff}"`);
+
+    this.suchergebnisArray =
+      this.alleKfzKennzeichenArray
+          .filter( (kfzKennzeichenObj) =>
+                     kfzKennzeichenObj.kennzeichen.toLowerCase().startsWith(aktuellerSuchbegriff)
+                );
   }
 
 }
