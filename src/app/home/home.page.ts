@@ -57,6 +57,7 @@ export class HomePage {
     this.addKfzKennzeichen("MA" , "Mannheim"   , this.BW);
 
     this.addKfzKennzeichen("THW", "Technisches Hilfswerk", this.BEH);
+    this.addKfzKennzeichen("BP" , "Bundespolizei"        , this.BEH);
 
     this.addKfzKennzeichen("X", "Nato"      , this.MIL);
     this.addKfzKennzeichen("Y", "Bundeswehr", this.MIL);
@@ -65,7 +66,8 @@ export class HomePage {
   /**
    * Einzelnes KFZ-Kennzeichen in internen Array ("Datenbank") hinzufügen.
    *
-   * @param kennzeichen KFZ-Kennzeichen, z.B. "KA"
+   * @param kennzeichen KFZ-Kennzeichen (Unterscheidungszeichen), z.B. "KA"; 
+   *                    wird auf Großbuchstaben normiert.
    * @param stadtKreis Stadt oder Kreis, für den das Kennzeichen steht
    * @param bundesland Bundesland, in dem Stadt/Kreis liegt
    */
