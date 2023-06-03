@@ -96,10 +96,10 @@ export class HomePage {
     }
 
     this.suchergebnisArray =
-      this.alleKfzKennzeichenArray
-          .filter( (kfzKennzeichenObj) =>
-                     kfzKennzeichenObj.kennzeichen.startsWith(aktuellerSuchbegriff)
-                );
+        this.alleKfzKennzeichenArray
+            .filter( (kfzKennzeichenObj) =>
+                      kfzKennzeichenObj.kennzeichen.startsWith(aktuellerSuchbegriff)
+                   );
   }
 
   /**
