@@ -71,7 +71,9 @@ export class HomePage {
    */
   private addKfzKennzeichen(kennzeichen: String, stadtKreis: String, bundesland: String) {
 
-    const datensatz = new KfzKennzeichen(kennzeichen, stadtKreis, bundesland);
+    const kennzeichenNorm = kennzeichen.toUpperCase();
+
+    const datensatz = new KfzKennzeichen(kennzeichenNorm, stadtKreis, bundesland);
 
     this.alleKfzKennzeichenArray.push( datensatz );
   }
@@ -83,7 +85,7 @@ export class HomePage {
    */
   public onSearchBarEingabe(event:any) {
 
-    const aktuellerSuchbegriff = event.target.value.trim().toLowerCase();
+    const aktuellerSuchbegriff = event.target.value.trim().toUpperCase();
 
     if (aktuellerSuchbegriff.length === 0) {
 
@@ -91,12 +93,10 @@ export class HomePage {
       return;
     }
 
-    console.log(`Aktueller Suchbegriff: "${aktuellerSuchbegriff}"`);
-
     this.suchergebnisArray =
       this.alleKfzKennzeichenArray
           .filter( (kfzKennzeichenObj) =>
-                     kfzKennzeichenObj.kennzeichen.toLowerCase().startsWith(aktuellerSuchbegriff)
+                     kfzKennzeichenObj.kennzeichen.startsWith(aktuellerSuchbegriff)
                 );
   }
 
