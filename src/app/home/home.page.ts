@@ -21,7 +21,7 @@ export class HomePage {
   // Abkürzungen der Bundesländer in Deutschland
   // Quelle: https://www.giga.de/ratgeber/specials/abkuerzungen-der-bundeslaender-in-deutschland-tabelle/
   readonly BE = "Berlin";
-  readonly BA = "Bayern";
+  readonly BY = "Bayern";
   readonly BW = "Baden-Württemberg";
   readonly NW = "Nordrhein-Westfalen";
 
@@ -50,7 +50,7 @@ export class HomePage {
     // KFZ-Kennzeichen in alphabetischer Reihenfolge definieren
 
     this.addKfzKennzeichen("B"  , "Berlin"     , this.BE);
-    this.addKfzKennzeichen("BA" , "Bamberg"    , this.BA);
+    this.addKfzKennzeichen("BA" , "Bamberg"    , this.BY);
     this.addKfzKennzeichen("BAD", "Baden-Baden", this.BW);
     this.addKfzKennzeichen("K"  , "Köln"       , this.NW);
     this.addKfzKennzeichen("KA" , "Karlsruhe"  , this.BW);
@@ -66,7 +66,7 @@ export class HomePage {
   /**
    * Einzelnes KFZ-Kennzeichen in internen Array ("Datenbank") hinzufügen.
    *
-   * @param kennzeichen KFZ-Kennzeichen (Unterscheidungszeichen), z.B. "KA"; 
+   * @param kennzeichen KFZ-Kennzeichen (Unterscheidungszeichen), z.B. "KA";
    *                    wird auf Großbuchstaben normiert.
    * @param stadtKreis Stadt oder Kreis, für den das Kennzeichen steht
    * @param bundesland Bundesland, in dem Stadt/Kreis liegt
