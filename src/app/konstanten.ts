@@ -1,6 +1,6 @@
-// Diese Klasse wird vom Skript UpdateCommitZeitstempel.js erzeugt.
+// Diese Klasse wird vom Skript "VersionHochdrehen.js" erzeugt.
 // Aktualisierung mit: npm run bump-version
 export abstract class Konstanten {
 
-     static readonly ZEITSTEMPEL_COMMIT = "2024-05-14T11:59:40+02:00";
+     static readonly ZEITSTEMPEL_COMMIT = "2024-05-14T12:24:06+02:00";
 }
