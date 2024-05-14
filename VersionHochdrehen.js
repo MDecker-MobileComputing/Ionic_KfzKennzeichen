@@ -12,7 +12,7 @@ const fs     = require('fs');
 // Quellcode-Datei, in der Konstante mit anzuzeigendem Wert definiert ist
 const zieldatei = "src/app/konstanten.ts";
 
-const zeitstempel = moment().format(); // Beispielausgabe: 2023-05-28T13:25:13+02:00
+const zeitstempel = moment().format( "YYYY-MM-DD (ddd), HH:mm:ss" ); // Beispielausgabe: 2024-05-14 (Tue), 12:32:11
 
 const inhalt =  "// Diese Klasse wird vom Skript \"VersionHochdrehen.js\" erzeugt.\n" +
                 "// Aktualisierung mit: npm run version-hochdrehen\n"                 +
