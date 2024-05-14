@@ -28,7 +28,7 @@ const callbackFunktion = (fehlerObj) => {
 
       } else {
 
-          console.log( "\nDatei wurde erstellt:\n\n" + inhalt + "\n" )
+          console.log( "\nDatei wurde erstellt:\n\n" + inhalt + "\n" );
       }
 };
 
