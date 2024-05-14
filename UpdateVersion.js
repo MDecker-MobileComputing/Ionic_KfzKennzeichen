@@ -3,6 +3,7 @@
  * <br><br>
  *
  * Muss manuell aufgerufen werden: npm run bump-version
+ * (siehe Definition von script "bump-version" in Datei "package.json")
  */
 
 const moment = require('moment');
@@ -20,6 +21,7 @@ const inhalt =  "// Diese Klasse wird vom Skript UpdateCommitZeitstempel.js erze
                 "}";
 
 const callbackFunktion = (fehlerObj) => {
+
     if (fehlerObj) {
 
           console.log( `\nFehler aufgetreten: ${error}\n` );
