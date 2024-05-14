@@ -8,7 +8,7 @@ Simple Ionic app to demonstrate usage of UI compoment [ion-searchbar](https://io
 
 Run the following command to update the version/timestamp shown in the info modal of the application:
 ```
-npm run bump-version
+npm run version-hochdrehen
 ```
 
 <br>

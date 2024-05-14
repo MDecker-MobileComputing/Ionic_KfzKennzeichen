@@ -3,7 +3,7 @@
  * <br><br>
  *
  * Muss manuell aufgerufen werden: npm run bump-version
- * (siehe Definition von script "bump-version" in Datei "package.json")
+ * (siehe Definition von script "version-hochdrehen" in Datei "package.json")
  */
 
 const moment = require('moment');
@@ -15,7 +15,7 @@ const zieldatei = "src/app/konstanten.ts";
 const zeitstempel = moment().format(); // Beispielausgabe: 2023-05-28T13:25:13+02:00
 
 const inhalt =  "// Diese Klasse wird vom Skript \"VersionHochdrehen.js\" erzeugt.\n" +
-                "// Aktualisierung mit: npm run bump-version\n"                       +
+                "// Aktualisierung mit: npm run version-hochdrehen\n"                 +
                 "export abstract class Konstanten {\n\n"                              +
                 `     static readonly ZEITSTEMPEL_COMMIT = \"${zeitstempel}\";\n`     +
                 "}";
