@@ -18,9 +18,9 @@ const inhalt =  "// Diese Klasse wird vom Skript UpdateCommitZeitstempel.js erze
 
 const callbackFunktion = (fehlerObj) => {
     if (fehlerObj) {
-        console.log(`\nFehler aufgetreten: ${error}\n`);
+        console.log( `\nFehler aufgetreten: ${error}\n` );
       } else {
-        console.log("\nDatei wurde erstellt:\n" + inhalt + "\n")
+        console.log( "\nDatei wurde erstellt:\n" + inhalt + "\n" )
       }
 };
 

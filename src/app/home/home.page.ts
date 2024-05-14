@@ -4,6 +4,7 @@ import { IonModal } from '@ionic/angular';
 import { KfzKennzeichen } from '../kfz-kennzeichen';
 import { Konstanten } from '../konstanten';
 
+
 /**
  * App, um die KFZ-Kennzeichen in Deutschland nachzuschlagen.
  *
@@ -42,6 +43,7 @@ export class HomePage {
    */
   @ViewChild(IonModal) infoModal: IonModal | null = null;
 
+
   /**
    * Konstruktor, füllt Member-Variable mit allen bekannten KFZ-Kennzeichen.
    */
@@ -49,19 +51,20 @@ export class HomePage {
 
     // KFZ-Kennzeichen in alphabetischer Reihenfolge definieren
 
-    this.addKfzKennzeichen("B"  , "Berlin"     , this.BE);
-    this.addKfzKennzeichen("BA" , "Bamberg"    , this.BY);
-    this.addKfzKennzeichen("BAD", "Baden-Baden", this.BW);
-    this.addKfzKennzeichen("K"  , "Köln"       , this.NW);
-    this.addKfzKennzeichen("KA" , "Karlsruhe"  , this.BW);
-    this.addKfzKennzeichen("MA" , "Mannheim"   , this.BW);
+    this.addKfzKennzeichen( "B"  , "Berlin"     , this.BE );
+    this.addKfzKennzeichen( "BA" , "Bamberg"    , this.BY );
+    this.addKfzKennzeichen( "BAD", "Baden-Baden", this.BW );
+    this.addKfzKennzeichen( "K"  , "Köln"       , this.NW );
+    this.addKfzKennzeichen( "KA" , "Karlsruhe"  , this.BW );
+    this.addKfzKennzeichen( "MA" , "Mannheim"   , this.BW );
 
-    this.addKfzKennzeichen("THW", "Technisches Hilfswerk", this.BEH);
-    this.addKfzKennzeichen("BP" , "Bundespolizei"        , this.BEH);
+    this.addKfzKennzeichen( "X", "Nato"      , this.MIL );
+    this.addKfzKennzeichen( "Y", "Bundeswehr", this.MIL );
 
-    this.addKfzKennzeichen("X", "Nato"      , this.MIL);
-    this.addKfzKennzeichen("Y", "Bundeswehr", this.MIL);
+    this.addKfzKennzeichen( "THW", "Technisches Hilfswerk", this.BEH );
+    this.addKfzKennzeichen( "BP" , "Bundespolizei"        , this.BEH );
   }
+
 
   /**
    * Einzelnes KFZ-Kennzeichen in internen Array ("Datenbank") hinzufügen.
@@ -75,10 +78,11 @@ export class HomePage {
 
     const kennzeichenNorm = kennzeichen.toUpperCase();
 
-    const datensatz = new KfzKennzeichen(kennzeichenNorm, stadtKreis, bundesland);
+    const datensatz = new KfzKennzeichen( kennzeichenNorm, stadtKreis, bundesland );
 
     this.alleKfzKennzeichenArray.push( datensatz );
   }
+
 
   /**
    * Event-Handler-Methode für ion-searchbar.
@@ -89,7 +93,7 @@ export class HomePage {
 
     const aktuellerSuchbegriff = event.target.value.trim().toUpperCase();
 
-    if (aktuellerSuchbegriff.length === 0) {
+    if ( aktuellerSuchbegriff.length === 0 ) {
 
       this.suchergebnisArray = [];
       return;
@@ -98,16 +102,17 @@ export class HomePage {
     this.suchergebnisArray =
         this.alleKfzKennzeichenArray
             .filter( (kfzKennzeichenObj) =>
-                      kfzKennzeichenObj.kennzeichen.startsWith(aktuellerSuchbegriff)
+                      kfzKennzeichenObj.kennzeichen.startsWith( aktuellerSuchbegriff )
                    );
   }
+
 
   /**
    * Event-Handler-Methode um Info-Modal zu schließen.
    */
   public onInfoModalSchliessen() {
 
-    if (this.infoModal != null) {
+    if ( this.infoModal != null ) {
 
       this.infoModal.dismiss();
     }
