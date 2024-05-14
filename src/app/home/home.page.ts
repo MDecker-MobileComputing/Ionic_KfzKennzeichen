@@ -71,10 +71,12 @@ export class HomePage {
    *
    * @param kennzeichen KFZ-Kennzeichen (Unterscheidungszeichen), z.B. "KA";
    *                    wird auf Großbuchstaben normiert.
+   *
    * @param stadtKreis Stadt oder Kreis, für den das Kennzeichen steht
+   *
    * @param bundesland Bundesland, in dem Stadt/Kreis liegt
    */
-  private addKfzKennzeichen(kennzeichen: String, stadtKreis: String, bundesland: String) {
+  private addKfzKennzeichen( kennzeichen: String, stadtKreis: String, bundesland: String ) {
 
     const kennzeichenNorm = kennzeichen.toUpperCase();
 
@@ -89,7 +91,7 @@ export class HomePage {
    *
    * @param suchbegriff Aktueller Suchbegriff
    */
-  public onSearchBarEingabe(event:any) {
+  public onSearchBarEingabe( event:any ) {
 
     const aktuellerSuchbegriff = event.target.value.trim().toUpperCase();
 
