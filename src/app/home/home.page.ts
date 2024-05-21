@@ -63,6 +63,7 @@ export class HomePage {
 
     this.addKfzKennzeichen( "THW", "Technisches Hilfswerk", this.BEH );
     this.addKfzKennzeichen( "BP" , "Bundespolizei"        , this.BEH );
+    this.addKfzKennzeichen( "BWL", "Land BW"              , this.BEH );
   }
 
 
