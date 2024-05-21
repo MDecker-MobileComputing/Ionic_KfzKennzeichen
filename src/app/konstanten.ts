@@ -2,5 +2,5 @@
 // Aktualisierung mit: npm run version-hochdrehen
 export abstract class Konstanten {
 
-     static readonly ZEITSTEMPEL_COMMIT = "2024-05-14 (Tue), 12:32:11";
+     static readonly ZEITSTEMPEL_COMMIT = "2024-05-21 (Tue), 12:30:08";
 }
