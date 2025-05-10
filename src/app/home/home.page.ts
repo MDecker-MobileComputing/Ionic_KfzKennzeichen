@@ -16,6 +16,7 @@ import { Konstanten } from '../konstanten';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  standalone: false
 })
 export class HomePage {
 
@@ -54,6 +55,8 @@ export class HomePage {
     this.addKfzKennzeichen( "B"  , "Berlin"     , this.BE );
     this.addKfzKennzeichen( "BA" , "Bamberg"    , this.BY );
     this.addKfzKennzeichen( "BAD", "Baden-Baden", this.BW );
+    this.addKfzKennzeichen( "BR" , "Bruchsal"   , this.BW );
+    this.addKfzKennzeichen( "HD" , "Heidelberg" , this.BW );
     this.addKfzKennzeichen( "K"  , "Köln"       , this.NW );
     this.addKfzKennzeichen( "KA" , "Karlsruhe"  , this.BW );
     this.addKfzKennzeichen( "MA" , "Mannheim"   , this.BW );

@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'KfzKennzeichen',
+  appId: 'de.eldecker.ionic.kfzunterscheidungszeichen',
+  appName: 'Kfz-Unterscheidungszeichen',
   webDir: 'www'
 };
 

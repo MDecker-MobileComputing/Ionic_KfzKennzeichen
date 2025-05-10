@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package de.eldecker.ionic.kfzunterscheidungszeichen;
 
 import com.getcapacitor.BridgeActivity;
 
